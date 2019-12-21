@@ -25,12 +25,26 @@ export default {
     };
   },
   computed: {
+    posts() {
+      return this.$store.state.posts.all;
+    },
     post() {
-      return this.$store.state.posts.all.find(post => post.id === this.id);
+      return this.posts.find(post => post.id === this.id);
     },
     relatedPosts() {
-      return this.$store.state.posts.all.filter(post => post.id !== this.id);
+      return this.posts.filter(post => post.id !== this.id);
     }
+  },
+  head() {
+    return {
+      title: this.post.title,
+      meta: [
+        { name: "twitter:title", content: this.post.title },
+        { name: "twitter:description", content: this.post.content },
+        { name: "twitter:image", content: "https://i.imgur.com/UYP2umJ.png" },
+        { name: "twitter:card", content: "summary_large_image" }
+      ]
+    };
   }
 };
 </script>
