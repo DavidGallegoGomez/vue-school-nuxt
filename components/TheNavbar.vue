@@ -1,7 +1,7 @@
 <template>
   <nav class="nav">
     <div class="logo">
-      <nuxt-link to="#" class="logo text-lg">
+      <nuxt-link :to="{ name: 'index' }" class="logo text-lg">
         Nuxt Fundamentals
       </nuxt-link>
       <span class="subheader">
